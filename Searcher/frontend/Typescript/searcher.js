@@ -61,16 +61,20 @@ function Searcher() {
     for (var _i = 0, objVerbs_2 = objVerbs; _i < objVerbs_2.length; _i++) {
         var verb = objVerbs_2[_i];
         var Word = verb.infinitive.toLowerCase();
-        if (Word.indexOf(keyPressed.toLowerCase()) !== -1) {
-            var keyPosition = keyPressed.length - 1;
-            for (var _a = 0, Word_1 = Word; _a < Word_1.length; _a++) {
-                var leter = Word_1[_a];
-                if (Word.indexOf(leter) == keyPosition) {
-                    if (leter == keyPressed[keyPosition]) {
-                        result += "<tr class=\"menu\"><td class=\"verb\">" + verb.infinitive + "</td><td>Nombre</td><td>Username 4</td></tr>";
-                    }
-                }
+        var keyPressedToLowerCase = keyPressed.toLowerCase();
+        if (Word.indexOf(keyPressedToLowerCase) !== -1) {
+            var wordSlice = Word.slice(0, keyPressedToLowerCase.length);
+            if (wordSlice == keyPressedToLowerCase) {
+                result += "<tr class=\"menu\"><td class=\"verb\">" + verb.infinitive + "</td><td>Nombre</td><td>Username 4</td></tr>";
             }
+            // let keyPosition:number = keyPressed.length-1;   
+            // for (const leter of Word) {
+            //         if (Word.indexOf(leter) == keyPosition) {
+            //             if (leter == keyPressed[keyPosition]) {
+            //                     ;
+            //             }
+            //         }
+            //     }   
         }
     }
     if (result == "") {

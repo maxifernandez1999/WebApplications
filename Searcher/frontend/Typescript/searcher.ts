@@ -68,15 +68,21 @@ function Searcher(){
     $(".menu").remove();
     for (const verb of objVerbs) {
         let Word:string = verb.infinitive.toLowerCase();
-        if (Word.indexOf(keyPressed.toLowerCase()) !== -1) { 
-            let keyPosition:number = keyPressed.length-1;   
-            for (const leter of Word) {
-                    if (Word.indexOf(leter) == keyPosition) {
-                        if (leter == keyPressed[keyPosition]) {
-                                result += `<tr class="menu"><td class="verb">${verb.infinitive}</td><td>Nombre</td><td>Username 4</td></tr>`;
-                        }
-                    }
-                }   
+        let keyPressedToLowerCase:string = keyPressed.toLowerCase()
+        if (Word.indexOf(keyPressedToLowerCase) !== -1) { 
+            let wordSlice:string = Word.slice(0,keyPressedToLowerCase.length);
+            if(wordSlice == keyPressedToLowerCase)
+            {
+                result += `<tr class="menu"><td class="verb">${verb.infinitive}</td><td>Nombre</td><td>Username 4</td></tr>`
+            }
+            // let keyPosition:number = keyPressed.length-1;   
+            // for (const leter of Word) {
+            //         if (Word.indexOf(leter) == keyPosition) {
+            //             if (leter == keyPressed[keyPosition]) {
+            //                     ;
+            //             }
+            //         }
+            //     }   
         }
     }
     if (result == "") {
