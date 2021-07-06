@@ -28,9 +28,9 @@
     </section>
     <table class="table table-hover">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
+                <th>Infinitive</th>
+                <th>Pass</th>
+                <th>Participle</th>
             </tr>
     </table>
     </div>
